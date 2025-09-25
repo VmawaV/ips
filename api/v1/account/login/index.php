@@ -17,7 +17,7 @@ require_once __DIR__ . "/../../../../utils/token/create.php";
 $ProductionLibServerSpecifics = ServerSpecifics::getInstance();
 $DBLINK = $ProductionLibServerSpecifics->fnt_getDBConnection();
 $acco_email = $_POST["acco_email"];
-$user_password = $_POST["acco_password"];
+$acco_password = $_POST["acco_password"];
 
 
 $qry_getInformationUser = "
@@ -43,7 +43,7 @@ if (mysqli_num_rows($rs_getInformationUser) === 0) {
 }
 
 $row_getInformationUser = mysqli_fetch_array($rs_getInformationUser);
-$hashed_input_password = hash('sha256', $user_password);
+$hashed_input_password = hash('sha256', $acco_password);
 
 if ($hashed_input_password !== $row_getInformationUser['acco_password']) {
     http_response_code(401);

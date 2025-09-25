@@ -31,8 +31,13 @@ if (isset($_POST["recovery_token"])) {
         echo json_encode(array("error" => "Invalid or expired token"));
         exit;
     }
+<<<<<<< HEAD
     $acco_id = $validation['user_id'];
     $acco_email = $validation['user_email'];
+=======
+    $acco_id = $validation['acco_id'];
+    $acco_email = $validation['acco_email'];
+>>>>>>> 762aa151d6c75a942d3651be1d5843686c96e2f7
 } else {
     $auth_header = $headers['Authorization'];
     $data = explode(' ', $auth_header);
@@ -57,8 +62,13 @@ if (isset($_POST["recovery_token"])) {
         echo json_encode(array("error" => "Invalid or expired token"));
         exit;
     }
+<<<<<<< HEAD
     $acco_id = $decoded_jwt['user_id'];
     $acco_email = $decoded_jwt['user_email'];
+=======
+    $acco_id = $decoded_jwt['acco_id'];
+    $acco_email = $decoded_jwt['acco_email'];
+>>>>>>> 762aa151d6c75a942d3651be1d5843686c96e2f7
 }
 
 mysqli_begin_transaction($DBLINK);
@@ -79,7 +89,11 @@ if ($stmt === false) {
     exit;
 }
 
+<<<<<<< HEAD
 mysqli_stmt_bind_param($stmt, 'si', $hashed_new_password, $param_userID);
+=======
+mysqli_stmt_bind_param($stmt, 'si', $hashed_new_password, $acco_id);
+>>>>>>> 762aa151d6c75a942d3651be1d5843686c96e2f7
 if(!mysqli_stmt_execute($stmt)){
     mysqli_stmt_close($stmt);
     http_response_code(500);
