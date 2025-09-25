@@ -1,5 +1,4 @@
 <?php
-
 header('Content-Type: application/json');
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -7,18 +6,18 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-if (!isset($_POST['user_email']) || !isset($_POST['user_password'])) {
+if (!isset($_POST['acco_email']) || !isset($_POST['acco_password'])) {
     http_response_code(401);
     echo json_encode(['error' => 'Missing parameters','data'=>$_POST]);
     exit;
 }
-require_once "../../../../config/cors.php";
-require_once "../../../../functions/serverSpecifics.php";
-require_once "../../../../utils/token/create.php";
+require_once __DIR__ . "/../../../../config/cors.php";
+require_once __DIR__ . "/../../../../functions/serverSpecifics.php";
+require_once __DIR__ . "/../../../../utils/token/create.php";
 $ProductionLibServerSpecifics = ServerSpecifics::getInstance();
 $DBLINK = $ProductionLibServerSpecifics->fnt_getDBConnection();
-$acco_email = $_POST["user_email"];
-$user_password = $_POST["user_password"];
+$acco_email = $_POST["acco_email"];
+$user_password = $_POST["acco_password"];
 
 
 $qry_getInformationUser = "

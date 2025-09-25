@@ -1,5 +1,5 @@
 <?php
-require_once './validate.php';
+require_once __DIR__ . '/validate.php';
 $headers = getallheaders();
 if (!isset($headers['Authorization'])) {
     http_response_code(401);
