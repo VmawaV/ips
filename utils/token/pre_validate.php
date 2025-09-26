@@ -3,7 +3,7 @@ require_once __DIR__ . '/validate.php';
 $headers = getallheaders();
 if (!isset($headers['Authorization'])) {
     http_response_code(401);
-    echo json_encode(['error' => 'Missing token','details'=>$headers]);
+    echo json_encode(['error' => 'Missing token']);
     exit;
 }
 
@@ -30,7 +30,8 @@ if ($decoded_jwt === false) {
     echo json_encode(array("error" => "Invalid or expired token"));
     exit;
 }
-$user_id = $decoded_jwt['user_id'];
-$user_email = $decoded_jwt['user_email'];
-$user_name = $decoded_jwt['user_name'];
-$user_type = $decoded_jwt['user_type'];
+$acco_id = $decoded_jwt['acco_id'];
+$acco_email = $decoded_jwt['acco_email'];
+$acco_name = $decoded_jwt['acco_name'];
+$acco_role = $decoded_jwt['acco_role'];
+$acco_status = $decoded_jwt['acco_status'];

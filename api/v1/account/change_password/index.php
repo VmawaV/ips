@@ -38,6 +38,8 @@ if (isset($_POST["recovery_token"])) {
     $acco_id = $validation['acco_id'];
     $acco_email = $validation['acco_email'];
 >>>>>>> 762aa151d6c75a942d3651be1d5843686c96e2f7
+    $acco_id = $validation['acco_id'];
+    $acco_email = $validation['acco_email'];
 } else {
     $auth_header = $headers['Authorization'];
     $data = explode(' ', $auth_header);
@@ -69,6 +71,8 @@ if (isset($_POST["recovery_token"])) {
     $acco_id = $decoded_jwt['acco_id'];
     $acco_email = $decoded_jwt['acco_email'];
 >>>>>>> 762aa151d6c75a942d3651be1d5843686c96e2f7
+    $acco_id = $decoded_jwt['acco_id'];
+    $acco_email = $decoded_jwt['acco_email'];
 }
 
 mysqli_begin_transaction($DBLINK);

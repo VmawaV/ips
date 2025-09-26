@@ -31,7 +31,7 @@ function fnt_createJWT_v001($acco_id, $acco_name, $acco_email, $acco_role, $acco
       'acco_id' => $acco_id,
       'acco_name' => $acco_name,
       'acco_email' => $acco_email,
-      'acco_type' => $acco_role,
+      'acco_role' => $acco_role,
       'acco_status' => $acco_status
     ]
   ];
