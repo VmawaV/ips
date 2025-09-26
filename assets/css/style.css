@@ -887,9 +887,9 @@ tr:hover {
 }
 
 /* Section styling */
-.section {
+/* .section {
   display: none;
-}
+} */
 
 .section.active {
   display: block;
